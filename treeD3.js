@@ -1,6 +1,3 @@
-{
-  /* <script> */
-}
 var treeData = {
   name: 1,
   children: [
@@ -275,4 +272,3 @@ async function BFS(treeData) {
     }
   }
 }
-//   </script>
