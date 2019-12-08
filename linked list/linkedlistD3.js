@@ -21,20 +21,10 @@ var BOX_SIZE = (2 * (WIDTH - 2 * MARGIN)) / (data.length + 1);
 var BOX_PORTION_OFFSET = MAXRADIUS * 2;
 var MAX_BOX_PORTION = HEIGHT - BOX_PORTION_OFFSET;
 
-setInterval(function() {
-  randomLinkedListAction(linkedList);
-  updateViz();
-}, 2000);
-/*
-svg.selectAll('.nodes-circ').data(data, function(d){return d;}).enter()
-  .append('circle')
-    .attr('class', 'nodes-circ')
-    .attr('r', function(d){return d/25;})
-    .attr('cx', function(d, i){return i * (BOX_SIZE)/2 + BOX_SIZE/2;})
-    .attr('cy', MAXRADIUS)
-    .attr('fill', 'none')
-    .attr('stroke', 'white')
-    .attr('opacity', 0.85)*/
+// setInterval(function() {
+//   randomLinkedListAction(linkedList);
+//   updateViz();
+// }, 2000);
 
 svg
   .selectAll('.nodes-rect')
@@ -90,6 +80,7 @@ svg
 
 function updateViz() {
   var data = flattenLinkedList(linkedList);
+  console.log('this is data', data);
   /*    var nodesCirc = svg.selectAll('.nodes-circ').data(data, function(d){return d;});*/
   var nodesRect = svg.selectAll('.nodes-rect').data(data, function(d) {
     return d;
