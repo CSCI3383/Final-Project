@@ -42,3 +42,13 @@ LinkedList.prototype.makeNode = function(value) {
   node.next = null;
   return node;
 };
+
+LinkedList.prototype.addToHead = function(value) {
+  var node = this.makeNode(value);
+  if (!this.head) {
+    this.head = node;
+  } else {
+    node.next = this.head;
+  }
+  this.head = node;
+};

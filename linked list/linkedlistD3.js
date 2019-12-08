@@ -1,5 +1,5 @@
 var MAXRADIUS = 30;
-var WIDTH = 960;
+var WIDTH = 500;
 var HEIGHT = 500 - 97;
 var TEXT_PADDING = 8;
 var FONT_SIZE = 14;
@@ -10,7 +10,7 @@ initializeLinkedList(linkedList);
 
 var data = flattenLinkedList(linkedList);
 var svg = d3
-  .select('body')
+  .select('a')
   .append('svg')
   .attr('width', WIDTH)
   .attr('height', HEIGHT)
@@ -20,11 +20,6 @@ var svg = d3
 var BOX_SIZE = (2 * (WIDTH - 2 * MARGIN)) / (data.length + 1);
 var BOX_PORTION_OFFSET = MAXRADIUS * 2;
 var MAX_BOX_PORTION = HEIGHT - BOX_PORTION_OFFSET;
-
-// setInterval(function() {
-//   randomLinkedListAction(linkedList);
-//   updateViz();
-// }, 2000);
 
 svg
   .selectAll('.nodes-rect')
@@ -91,8 +86,6 @@ function updateViz() {
 
   // update
   BOX_SIZE = (2 * (WIDTH - 2 * MARGIN)) / (data.length + 1);
-  /*      nodesCirc.transition().duration(1000)
-    .attr('cx', function(d, i){return i * (BOX_SIZE)/2 + BOX_SIZE/2;})*/
   nodesRect
     .transition()
     .duration(1000)
@@ -138,7 +131,8 @@ function updateViz() {
       .attr('cy', MAXRADIUS)
       .attr('fill', 'none')
       .attr('stroke', 'white')
-      .attr('opacity', 0.85)*/
+      .attr('opacity', 0.85)
+      */
 
   nodesRect
     .enter()
@@ -234,5 +228,11 @@ function manualAddToTail() {
 }
 function manualRemoveHead() {
   var value = linkedList.removeHead();
+  updateViz();
+}
+
+function manualAddToHead() {
+  var value = document.getElementById('controls-input').value;
+  linkedList.addToHead(value);
   updateViz();
 }

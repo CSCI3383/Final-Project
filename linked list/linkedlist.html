@@ -8,19 +8,16 @@
   <body>
     <div class="controls">
       <div class="controls-joined">
-        <input
-          class="input"
-          id="controls-input"
-          type="number"
-          step="1"
-          value="0"
-        />
-        <button class="button" id="controls-push" onClick="manualRemoveHead()">
-          RemoveHead
-        </button>
+        <input class="input" id="controls-input" value="0" />
       </div>
+      <button class="button" id="controls-push" onClick="manualRemoveHead()">
+        RemoveHead
+      </button>
       <button class="button" id="controls-pop" onClick="manualAddToTail()">
         AddToTail
+      </button>
+      <button class="button" id="controls-pop" onClick="manualAddToHead()">
+        AddToHead
       </button>
       <h1 class="title">
         Linked List Visualization
@@ -32,6 +29,8 @@
     <form action="/action_page.php">
       Value: <input type="text" name="fname" id="input" /><br />
     </form>
+    <a id="anchor"></a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 
     <script src="linkedlist.js"></script>
