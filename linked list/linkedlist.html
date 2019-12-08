@@ -1,72 +1,40 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="./css/app.css" />
-  <!-- <style>
-    * {
-      font: sans-serif;
-    }
-    body {
-      margin: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: #564b71;
-    }
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Linked List</title>
+    <link rel="stylesheet" type="text/css" href="linkedlist.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <div class="controls-joined">
+        <input
+          class="input"
+          id="controls-input"
+          type="number"
+          step="1"
+          value="0"
+        />
+        <button class="button" id="controls-push" onClick="manualRemoveHead()">
+          RemoveHead
+        </button>
+      </div>
+      <button class="button" id="controls-pop" onClick="manualAddToTail()">
+        AddToTail
+      </button>
+      <h1 class="title">
+        Linked List Visualization
+      </h1>
+      <button class="button" id="controls-clear" onClick="handleClear();">
+        Clear
+      </button>
+    </div>
+    <form action="/action_page.php">
+      Value: <input type="text" name="fname" id="input" /><br />
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 
-    .btn {
-      float: right;
-      box-sizing: border-box;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-color: transparent;
-      border: 2px solid white;
-      border-radius: 0.6em;
-      color: white;
-      cursor: pointer;
-      display: inline-block;
-      -webkit-align-self: center;
-      -ms-flex-item-align: center;
-      align-self: center;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1;
-      margin: 20px;
-      padding: 0.6em 1.4em;
-      text-decoration: none;
-      text-align: center;
-      text-transform: uppercase;
-      -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-      transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    }
-    .btn:hover,
-    .btn:focus {
-      color: #564b71;
-      outline: 0;
-      box-shadow: 0 0 40px 40px white inset;
-    }
-    #status-text {
-      display: inline-block;
-      color: white;
-      font: 300 48px Helvetica Neue;
-      margin: 20px;
-      text-transform: uppercase;
-      opacity: 0.9;
-    }
-  </style> -->
-</head>
-
-<body>
-  <h1 id="status-text">Linked List</h1>
-  <button class="btn" onclick="manualRemoveHead()">Remove node</button>
-  <button class="btn" onclick="manualAddToTail()">Add node</button>
-  <form action="/action_page.php">
-    Value: <input type="text" name="fname" id="input" /><br />
-  </form>
-  <script src="linkedlist.js"></script>
-  <script src="linkedlistD3.js"></script>
-</body>
+    <script src="linkedlist.js"></script>
+    <script src="linkedlistD3.js"></script>
+  </body>
+</html>

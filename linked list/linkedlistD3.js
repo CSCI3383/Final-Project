@@ -12,7 +12,6 @@ var data = flattenLinkedList(linkedList);
 var svg = d3
   .select('body')
   .append('svg')
-  .style('background-color', '#665A88')
   .attr('width', WIDTH)
   .attr('height', HEIGHT)
   .append('g')
@@ -128,8 +127,7 @@ function updateViz() {
     .attr('y', function(d, i) {
       return (
         BOX_PORTION_OFFSET +
-        (i * (MAX_BOX_PORTION - BOX_SIZE - 2 * MARGIN)) /
-          (data.length - 1) +
+        (i * (MAX_BOX_PORTION - BOX_SIZE - 2 * MARGIN)) / (data.length - 1) +
         FONT_SIZE +
         TEXT_PADDING
       );
@@ -183,8 +181,7 @@ function updateViz() {
     .attr('y', function(d, i) {
       return (
         BOX_PORTION_OFFSET +
-        (i * (MAX_BOX_PORTION - BOX_SIZE - 2 * MARGIN)) /
-          (data.length - 1) +
+        (i * (MAX_BOX_PORTION - BOX_SIZE - 2 * MARGIN)) / (data.length - 1) +
         FONT_SIZE +
         TEXT_PADDING
       );
@@ -239,13 +236,12 @@ function randomLinkedListAction(linkedList) {
 }
 
 function manualAddToTail() {
-  var value = document.getElementById('input').value;
+  var value = document.getElementById('controls-input').value;
+  console.log('this is value', value);
   linkedList.addToTail(value);
-  document.getElementById('status-text').innerHTML = 'Added ' + value;
   updateViz();
 }
 function manualRemoveHead() {
   var value = linkedList.removeHead();
-  document.getElementById('status-text').innerHTML = 'Removed ' + value;
   updateViz();
 }
