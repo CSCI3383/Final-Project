@@ -1,5 +1,5 @@
 var MAXRADIUS = 30;
-var WIDTH = 500;
+var WIDTH = 900;
 var HEIGHT = 500 - 97;
 var TEXT_PADDING = 8;
 var FONT_SIZE = 14;
@@ -67,8 +67,8 @@ svg
     );
   })
   .text(function(d, i) {
-    if (i === 0) return d + ' (H)';
-    if (i === data.length - 1) return d + ' (T)';
+    if (i === 0) return d + ' (Head)';
+    if (i === data.length - 1) return d + ' (Tail)';
     return d;
   })
   .attr('fill', '#665A88');
@@ -77,11 +77,11 @@ function updateViz() {
   var data = flattenLinkedList(linkedList);
   console.log('this is data', data);
   /*    var nodesCirc = svg.selectAll('.nodes-circ').data(data, function(d){return d;});*/
-  var nodesRect = svg.selectAll('.nodes-rect').data(data, function(d) {
-    return d;
+  var nodesRect = svg.selectAll('.nodes-rect').data(data, function(d, i) {
+    return i;
   });
-  var nodesText = svg.selectAll('.nodes-text').data(data, function(d) {
-    return d;
+  var nodesText = svg.selectAll('.nodes-text').data(data, function(d, i) {
+    return i;
   });
 
   // update
@@ -117,8 +117,8 @@ function updateViz() {
       );
     })
     .text(function(d, i) {
-      if (i === 0) return d + ' (H)';
-      if (i === data.length - 1) return d + ' (T)';
+      if (i === 0) return d + ' (Head)';
+      if (i === data.length - 1) return d + ' (Tail)';
       return d;
     });
 
@@ -172,8 +172,8 @@ function updateViz() {
       );
     })
     .text(function(d, i) {
-      if (i === 0) return d + ' (H)';
-      if (i === data.length - 1) return d + ' (T)';
+      if (i === 0) return d + ' (Head)';
+      if (i === data.length - 1) return d + ' (Tail)';
       return d;
     })
     .attr('fill', '#665A88');
