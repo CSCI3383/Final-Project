@@ -178,12 +178,6 @@ function updateViz() {
     })
     .attr('fill', '#665A88');
 
-  //exit
-  /*    nodesCirc.exit()
-    .transition().duration(1000)
-      .attr('opacity', 0)
-    .remove()*/
-
   nodesRect
     .exit()
     .transition()
