@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<meta charset="UTF-8" />
-<style>
-  .node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 3px;
-  }
-
-  .node text {
-    font: 12px sans-serif;
-  }
-
-  .link {
-    fill: none;
-    stroke: #ccc;
-    stroke-width: 2px;
-  }
-</style>
-
-<body>
-  <button onclick="DFS(treeData)">DFS button</button>
-  <button onclick="BFS(treeData)">BFS button</button>
-
-  <!-- load the d3.js library -->
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="treeD3.js"></script>
-</body>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Binary Tree</title>
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <div class="controls-joined">
+        <input
+          class="input"
+          id="controls-input"
+          type="number"
+          step="1"
+          value="0"
+        />
+        <button class="button" id="controls-push" onClick="DFS(treeData);">
+          DFS
+        </button>
+      </div>
+      <button class="button" id="controls-pop" onClick="BFS(treeData)">
+        BFS
+      </button>
+      <h1 class="title">
+        Binary Tree Search Visualization
+      </h1>
+      <button class="button" id="controls-clear" onClick="handleClear();">
+        Clear
+      </button>
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="treeD3.js"></script>
+  </body>
+</html>

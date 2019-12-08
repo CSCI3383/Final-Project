@@ -1,0 +1,128 @@
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+html,
+body,
+#chart {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* SVG styling */
+svg {
+  width: 100%;
+  height: 100%;
+  font-family: helvetica, sans-serif;
+}
+
+i {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+  font-style: italic;
+  font-size: 12px;
+  font-family: Georgia;
+  line-height: 21px;
+  position: relative;
+  top: -3px;
+  margin-left: 6px;
+  padding: 0;
+  width: 21px;
+  height: 21px;
+  text-align: center;
+  transition: all 0.1s linear;
+}
+
+i a {
+  color: #222222;
+  text-decoration: none;
+  display: block;
+  line-height: 21px;
+  width: 100%;
+}
+
+i:hover {
+  opacity: 1;
+}
+
+.controls {
+  width: 100%;
+  height: 41px;
+  position: fixed;
+  background-color: rgba(12, 13, 14, 0.862745);
+}
+
+.title {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 41px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.controls-joined {
+  float: left;
+}
+
+.input,
+.button {
+  height: 27px;
+  margin-top: 7px;
+  border: 0;
+  padding: 0 10px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+  line-height: 27px;
+  color: #222222;
+  background-color:
+  transition: all 0.1s linear;
+}
+
+#controls-input {
+  margin-right: 0;
+  margin-left: 10px;
+  color: #222222;
+  margin-right: -4px;
+  width: 60px;
+}
+
+#controls-push {
+  border-left: 1px solid #eaeaea;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+#controls-clear {
+  float: right;
+  margin-right: 10px;
+  background-color: rgb(159, 166, 173);
+}
+
+#controls-pop:hover,
+#controls-push:hover,
+#controls-clear:hover {
+  cursor: pointer;
+  background-color: rgb(246, 156, 85);
+}

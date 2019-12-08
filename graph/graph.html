@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<meta charset="utf-8" />
-<style>
-  body {
-    font-family: 'Inconsolata';
-  }
-</style>
-<body>
-  <button onclick="graphDFS(graph)">DFS Graph</button>
-  <button onclick="graphBFS(graph)">BFS Graph</button>
-  <svg width="960" height="600"></svg>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="graph.js"></script>
-</body>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Graph</title>
+    <link rel="stylesheet" type="text/css" href="graph.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <div class="controls-joined">
+        <input
+          class="input"
+          id="controls-input"
+          type="number"
+          step="1"
+          value="0"
+        />
+        <button class="button" id="controls-push" onClick="graphDFS(graph);">
+          DFS
+        </button>
+      </div>
+      <button class="button" id="controls-pop" onClick="graphBFS(graph)">
+        BFS
+      </button>
+      <h1 class="title">
+        Graph Search Visualization
+      </h1>
+      <button class="button" id="controls-clear" onClick="handleClear();">
+        Clear
+      </button>
+    </div>
+    <svg width="960" height="600"></svg>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="graph.js"></script>
+  </body>
+</html>
