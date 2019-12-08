@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Binary Tree Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+  </head>
+  <body>
+
+    <div class="controls">
+      <div class="controls-joined">
+        <input class="input" id="controls-input" type="number" step="1" value="0">
+        <button class="button" id="controls-push" onClick="handlePush();">Push</button>
+      </div>
+      <button class="button" id="controls-pop" onClick="handlePop()">Pop</button>
+        <h1 class="title">Min-Heap Binary Tree </h1>
+      <button class="button" id="controls-clear" onClick="handleClear();">Clear</button>
+    </div>
+
+    <div id="chart">
+      <svg></svg>
+    </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script type="text/javascript" src="./js/binaryheaptree.js"></script>
+  <script type="text/javascript" src="./js/binaryheapvisualizer.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+  </body>
+</html>
