@@ -10,7 +10,7 @@ initializeLinkedList(linkedList);
 
 var data = flattenLinkedList(linkedList);
 var svg = d3
-  .select('a')
+  .select('#anchor')
   .append('svg')
   .attr('width', WIDTH)
   .attr('height', HEIGHT)

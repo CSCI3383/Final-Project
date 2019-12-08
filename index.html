@@ -1,14 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <title>Algorithms Project</title>
+    <!-- <meta charset="utf-8"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <a href="binary tree/tree.html">Binary Tree Search</a>
-    <a href="graph/graph.html">Graph Search </a>
-    <a href="linked list/linkedlist.html">Linked List</a>
-    <a href="min-heap/minheap.html">Min Heap</a>
-  </head>
-  <body></body>
+
+    <style>      
+body{
+    background-color: white;
+    padding-left:140px;
+}
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 140px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: black;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    padding-left: 0px;
+  }
+
+.sidenav a {
+    
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    text-align: center;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+
+
+
+  /* mouse over link */
+.sidenav a:hover {
+    background-color: blue;
+  }
+.sidenav  a:link {
+    background-color: gray;
+  }
+.sidenav a:active {
+    background-color: black;
+  }  
+
+.sidenav a:visited {
+    color: white;
+  }
+
+
+  
+  /* Style page content */
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+#banner{
+    width:100%; height:435px;
+    background-image: url('images/banner.jpg'); 
+    background-size: 100% 150%;
+    background-position: center; 
+    text-align: center;
+    line-height: 170px;
+}
+
+#banner h1{
+    font:trebuchet;font-size:6em; padding-top:10%;
+    color:black; text-shadow:2px 2px 4px #000000;
+    word-wrap: break-word;
+    
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+ul{
+    width:70%;
+    padding-left:20%;
+  
+}
+ul li{
+    list-style-image:none; 
+    list-style: none;
+    padding-right:0%;
+    padding: 10px;
+    padding-left:0%;
+
+}
+
+#nav {
+    text-align: center; 
+}
+
+#nav a{
+text-decoration:none;
+font-size:1em; 
+border: 1px solid #ddd;
+border-radius: 4px;
+padding: 5px;   
+/* color:white;
+background-color: gray; */
+}
+
+p{
+    font-size:1.3em;
+}
+#footer{
+    text-align:center;
+    padding-top:2%;
+}
+
+#detail img{
+    float: right;
+
+}
+#caption{
+    color:white; 
+    text-align:left;
+    font-size:1em;
+}
+#title{
+    text-align:center;
+    color:black;
+    font-size:3em;
+}
+div#detail {
+text-align:center;
+font-size:1.5em;
+width:80%;
+margin:auto;
+}
+
+#detail h2 {
+color:black;
+font-size:2em;
+}
+
+#detail img {
+float:right;
+padding-left:2%;
+}
+
+#caption {
+color:white;
+width:100%;
+text-align:left;
+}
+
+#footer {
+clear:both;
+text-align:center;
+color:black;
+padding-top:"2%"
+}
+    </style> 
+</head>
+<body>
+    <div id="banner"><h1>Algorithms Project</h1>
+    </div>
+    
+    <div class = "sidenav" id="nav">
+        <ul>
+            <li><a href="index.html"  text="Home">
+                Home</a>
+            </li>
+            <li><a href="./binary tree/tree.html" text="Binary Tree">
+                Binary Tree</a>
+            </li>
+            <li><a href="./graph/graph.html"  text="Graph Serach">
+               Graph Serach </a>
+            </li>
+            <li><a href="./linked list/linkedlist.html" text="Linked List">
+                Linked List</a>
+            </li>
+            <li><a href="./min-heap/minheap.html" text="Min-Heap Binary Tree">
+                Min-Heap Binary Tree </a>
+            </li>
+        </ul>  
+    </div>
+    <div style="margin:auto; width:100%">
+        <h1 id="caption" style="color:black; ">
+        <p>The goal of this educational website is for any history enthusiast and curious minds that want to know 
+            the most important and consequential battles in United States history.</p>
+        <p>The United States has been in numerous conflicts but these eleven battles have shaped American 
+            laws, policies, national strategies and/or cultures. </p>
+        <p> In order to look to our present and future, we have to look at our past. With these battles, 
+            I hope to give a glimpse of insight into where the United States came from and how to prevent 
+            the same mistakes from happening again in the future.</p>
+       </h1>
+
+    </div>
+    <div id="footer"><hr>&copy;2019 ADIT1340 Boston College, Byungmoo Brian Kim
+    </div>
+
+</body>
 </html>
