@@ -75,28 +75,25 @@ async function graphDFS(graph) {
   }
 }
 
-async function graphBFS(graph) {
+async function graphBFS(graph, value) {
   const queue = [];
   const queueVisited = {};
+  value = value.toString();
   const { links } = graph;
-  queue.push('2');
-  queueVisited['2'] = true;
+  queue.push(value);
+  queueVisited[value] = true;
   while (queue.length > 0) {
     const shifted = queue.shift();
     d3.select('#node_' + shifted).style('fill', 'yellow');
     await timer(1000);
     for (let i = 0; i < links.length; i++) {
       const temp = links[i];
-      //   console.log(popped, 'temp', temp);
-      console.log('stack', queue);
       if (temp.source.id === shifted && visited[temp.target.id] === undefined) {
-        // console.log('popped', popped);
         queue.push(temp.target.id);
         queueVisited[temp.target.id] = true;
       }
     }
   }
-  //   d3.selectAll('.node-circle').style('fill', 'red');
 }
 
 function timer(ms) {
@@ -127,7 +124,6 @@ function run(graph) {
     .attr('class', 'node-circle')
     .style('fill', 'white')
     .attr('id', function(d) {
-      //   console.log('this d in circle', d);
       return 'node_' + d.id;
     })
     .attr('r', 2)
@@ -197,20 +193,17 @@ function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
   d.fx = d.x;
   d.fy = d.y;
-  //  simulation.fix(d);
 }
 
 function dragged(d) {
   d.fx = d3.event.x;
   d.fy = d3.event.y;
-  //  simulation.fix(d, d3.event.x, d3.event.y);
 }
 
 function dragended(d) {
   d.fx = d3.event.x;
   d.fy = d3.event.y;
   if (!d3.event.active) simulation.alphaTarget(0);
-  //simulation.unfix(d);
 }
 
 run(graph);

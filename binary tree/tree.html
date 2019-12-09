@@ -200,10 +200,13 @@ background-color: gray; */
           step="1"
           value="0"
         />
-        <button class="button" id="controls-push" onClick="DFS(treeData);">
-          DFS
+        <button class="button" id="controls-push" onClick="addBT();">
+          Add Node
         </button>
       </div>
+      <button class="button" id="controls-pop" onClick="DFS(treeData);">
+        DFS
+      </button>
       <button class="button" id="controls-pop" onClick="BFS(treeData)">
         BFS
       </button>
@@ -215,6 +218,7 @@ background-color: gray; */
       </button>
     </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="tree2.js"></script>
     <script src="treeD3.js"></script>
   </body>
 </html>

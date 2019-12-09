@@ -1,30 +1,38 @@
-var treeData = {
-  name: 1,
-  children: [
-    {
-      name: 2,
-      children: [
-        { name: 4, children: [{ name: 8,children: [{ name: 40 }, { name: 50 }] }, { name: 9 }] },
-        { name: 5, children: [{ name: 10 }, { name: 11, children: [{ name: 30 }] }] },
-      ],
-    },
-    {
-      name: 3,
-      children: [{ name: 6 }, { name: 7 }, { name: 1232132, children: [{ name: 60 }, { name: 71 }] }],
-    },
-  ],
+var array = [];
+
+var treeData = new Tree('0', 0);
+array.push(treeData);
+
+var addNextChild = function(value, array) {
+  const node = new Tree(value, array.length);
+  const nextSpot = Math.floor((array.length - 1) / 2);
+  array.push(node);
+  array[nextSpot].addChild(node, array.length);
 };
 
+var addBT = function() {
+  var value = document.getElementById('controls-input').value;
+  console.log('Add bt', value);
+  addNextChild(value, array);
+  test();
+  console.log('after', root);
+};
 
+addNextChild('1', array);
+addNextChild('2', array);
+addNextChild('3', array);
+addNextChild('4', array);
+addNextChild('5', array);
+addNextChild('6', array);
 
-// Set the dimensions and margins of the diagram
+var i = 0,
+  duration = 750,
+  root;
+
 var margin = { top: 20, right: 90, bottom: 30, left: 90 },
   width = 960 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
 var svg = d3
   .select('body')
   .append('svg')
@@ -33,31 +41,31 @@ var svg = d3
   .append('g')
   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-var i = 0,
-  duration = 750,
-  root;
-
-// declares a tree layout and assigns the size
 var treemap = d3.tree().size([height, width]);
+// declares a tree layout and assigns the size
+function test() {
+  d3.select('g')
+    .selectAll('*')
+    .remove();
+  // Assigns parent, children, height, depth
+  root = d3.hierarchy(treeData, function(d) {
+    return d.children;
+  });
+  root.x0 = height / 2;
+  root.y0 = 0;
 
-// Assigns parent, children, height, depth
-root = d3.hierarchy(treeData, function(d) {
-  return d.children;
-});
-root.x0 = height / 2;
-root.y0 = 0;
-
-// Collapse after the second level
-root.children.forEach(collapse);
-
-update(root);
+  // Collapse after the second level
+  root.children.forEach(collapse);
+  console.log('asdsad');
+  update(root);
+}
+test();
 
 // Collapse the node and all it's children
 function collapse(d) {
   if (d.children) {
     d._children = d.children;
     d._children.forEach(collapse);
-    //d.children = d._children
     d._children = null;
   }
 }
@@ -65,6 +73,7 @@ function collapse(d) {
 function update(source) {
   // Assigns the x and y position for the nodes
   var treeData = treemap(root);
+  console.log('update', treeData);
 
   // Compute the new tree layout.
   var nodes = treeData.descendants(),
@@ -97,12 +106,9 @@ function update(source) {
 
   nodeEnter
     .append('circle')
-
     .attr('class', 'node')
     .attr('r', 1e-6)
     .style('fill', function(d) {
-      //count++
-      //console.log(count)
       return d._children ? 'lightsteelblue' : '#fff';
     });
 
@@ -135,13 +141,10 @@ function update(source) {
   nodeUpdate
     .select('circle.node')
     .attr('id', function(d) {
-      console.log(typeof toString(d.data.name));
-      // return(toString(d.data.name))})
-      return 'node_' + d.data.name;
+      return 'node_' + d.data.index;
     })
     .attr('r', 10)
     .style('fill', function(d) {
-      //console.log(i);
       return d._children != d.children ? 'black' : 'pink';
     })
     .attr('cursor', 'pointer');
@@ -242,7 +245,7 @@ async function DFS(treeData) {
   while (stack.length > 0) {
     await timer(1000);
     const popped = stack.pop();
-    const name = popped.name;
+    const name = popped.index;
     d3.select('#node_' + name).style('fill', 'red');
     if (popped.children !== undefined && popped.children.length > 0) {
       for (let i = popped.children.length - 1; i >= 0; i--) {
@@ -263,7 +266,7 @@ async function BFS(treeData) {
       await timer(1000);
       const popped = queue.shift();
       console.log('this is BFS', popped);
-      const name = popped.name;
+      const name = popped.index;
       d3.select('#node_' + name).style('fill', 'red');
 
       if (popped.children !== undefined && popped.children.length > 0) {

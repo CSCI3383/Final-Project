@@ -1,229 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Algorithms Project</title>
     <!-- <meta charset="utf-8"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <style>      
-body{
-    background-color: white;
-    padding-left:140px;
-}
-.sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 140px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: black;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-    padding-left: 0px;
-  }
+    <style>
+      body {
+        background-color: white;
+        padding-left: 140px;
+      }
+      .sidenav {
+        height: 100%; /* Full-height: remove this if you want "auto" height */
+        width: 140px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: black;
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+        padding-left: 0px;
+      }
 
-.sidenav a {
-    
-    text-decoration: none;
-    font-size: 25px;
-    color: white;
-    display: block;
-    text-align: center;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
+      .sidenav a {
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        text-align: center;
+      }
 
+      /* When you mouse over the navigation links, change their color */
 
+      /* mouse over link */
+      .sidenav a:hover {
+        background-color: rgb(246, 156, 85);
+      }
+      .sidenav a:link {
+        background-color: gray;
+      }
+      .sidenav a:active {
+        background-color: black;
+      }
 
-  /* mouse over link */
-.sidenav a:hover {
-    background-color: rgb(246, 156, 85);
-  }
-.sidenav  a:link {
-    background-color: gray;
-  }
-.sidenav a:active {
-    background-color: black;
-  }  
+      .sidenav a:visited {
+        color: white;
+      }
 
-.sidenav a:visited {
-    color: white;
-  }
+      /* Style page content */
+      .main {
+        margin-left: 160px; /* Same as the width of the sidebar */
+        padding: 0px 10px;
+      }
 
+      /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
 
-  
-  /* Style page content */
-.main {
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  
-#banner{
-    width:100%; height:135px;
-    background-image: url('images/banner.jpg'); 
-    background-size: 100% 150%;
-    background-position: center; 
-    text-align: center;
-    line-height: 0px;
-}
+      #banner {
+        width: 100%;
+        height: 135px;
+        background-image: url('images/banner.jpg');
+        background-size: 100% 150%;
+        background-position: center;
+        text-align: center;
+        line-height: 0px;
+      }
 
-#banner h1{
-    font:trebuchet;font-size:6em; padding-top:5%;
-    color:black; text-shadow:2px 2px 4px #000000;
-    word-wrap: break-word;
-    
-}
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-  
-ul{
-    width:70%;
-    padding-left:20%;
-  
-}
-ul li{
-    list-style-image:none; 
-    list-style: none;
-    padding-right:0%;
-    padding: 10px;
-    padding-left:0%;
+      #banner h1 {
+        font: trebuchet;
+        font-size: 6em;
+        padding-top: 5%;
+        color: black;
+        text-shadow: 2px 2px 4px #000000;
+        word-wrap: break-word;
+      }
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
 
-}
+      ul {
+        width: 70%;
+        padding-left: 20%;
+      }
+      ul li {
+        list-style-image: none;
+        list-style: none;
+        padding-right: 0%;
+        padding: 10px;
+        padding-left: 0%;
+      }
 
-#nav {
-    text-align: center; 
-}
+      #nav {
+        text-align: center;
+      }
 
-#nav a{
-text-decoration:none;
-font-size:1em; 
-border: 1px solid #ddd;
-border-radius: 4px;
-padding: 5px;   
-/* color:white;
+      #nav a {
+        text-decoration: none;
+        font-size: 1em;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        /* color:white;
 background-color: gray; */
-}
+      }
 
-p{
-    font-size:1.3em;
-}
-/* #footer{
+      p {
+        font-size: 1.3em;
+      }
+      /* #footer{
     text-align:center;
     padding-top:2%;
 } */
-#footer {
-position: absolute;
-width: 87%;
-text-align:center;
-color:black;
-bottom:0
-}
+      #footer {
+        position: absolute;
+        width: 87%;
+        text-align: center;
+        color: black;
+        bottom: 0;
+      }
 
-#detail img{
-    float: right;
+      #detail img {
+        float: right;
+      }
+      #caption {
+        color: white;
+        text-align: left;
+        font-size: 1em;
+      }
+      #title {
+        text-align: center;
+        color: black;
+        font-size: 3em;
+      }
+      div#detail {
+        text-align: center;
+        font-size: 1.5em;
+        width: 80%;
+        margin: auto;
+      }
 
-}
-#caption{
-    color:white; 
-    text-align:left;
-    font-size:1em;
-}
-#title{
-    text-align:center;
-    color:black;
-    font-size:3em;
-}
-div#detail {
-text-align:center;
-font-size:1.5em;
-width:80%;
-margin:auto;
-}
+      #detail h2 {
+        color: black;
+        font-size: 2em;
+      }
 
-#detail h2 {
-color:black;
-font-size:2em;
-}
+      #detail img {
+        float: right;
+        padding-left: 2%;
+      }
 
-#detail img {
-float:right;
-padding-left:2%;
-}
+      #caption {
+        color: white;
+        width: 100%;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="banner"><h1>Visualizing CS Interview</h1></div>
 
-#caption {
-color:white;
-width:100%;
-text-align:left;
-}
-
-
-    </style> 
-</head>
-<body>
-    <div id="banner" ><h1>Algorithms Project</h1>
-    </div>
-    
-    <div class = "sidenav" id="nav">
-        <ul>
-            <li><a href="index.html"  text="Home">
-                Home</a>
-            </li>
-            <li><a href="./binary tree/tree.html" text="Binary Tree">
-                Binary Tree</a>
-            </li>
-            <li><a href="./graph/graph.html"  text="Graph Serach">
-               Graph Search </a>
-            </li>
-            <li><a href="./linked list/linkedlist.html" text="Linked List">
-                Linked List</a>
-            </li>
-            <li><a href="./min-heap/minheap.html" text="Min-Heap Binary Tree">
-                Min-Heap Binary Tree </a>
-            </li>
-                    <li>
+    <div class="sidenav" id="nav">
+      <ul>
+        <li><a href="index.html" text="Home"> Home</a></li>
+        <li>
+          <a href="./binary tree/tree.html" text="Binary Tree"> Binary Tree</a>
+        </li>
+        <li>
+          <a href="./graph/graph.html" text="Graph Serach"> Graph Search </a>
+        </li>
+        <li>
+          <a href="./linked list/linkedlist.html" text="Linked List">
+            Linked List</a
+          >
+        </li>
+        <li>
+          <a href="./min-heap/minheap.html" text="Min-Heap Binary Tree">
+            Min-Heap Binary Tree
+          </a>
+        </li>
+        <li>
           <a href="./max-heap/maxheap.html" text="Max-Heap Binary Tree">
             Max-Heap Binary Tree
           </a>
         </li>
-        </ul>  
+      </ul>
     </div>
     <div style="margin:auto; width:80%">
-        <h1 id="caption" style="color:black; ">
-        <p>Anyone who is looking for software engineering job opportunities 
-          faces the daunting coding interview involving data structures and 
-          algorithms. Despite the multiple CS resources, students often find 
-          it difficult to understand advanced topics such as Graphs, Trees, 
-          Binary Heap, and Linked List with plain text.</p>
-        <p>Our group decided to introduce a visualization app on data structures 
-          and algorithm questions on these four subjects. 
-          This website serves as a visualization to these 
-          subjects with tech stack including HTML, CSS, Javascript and D3.js, which 
-          is a javascript library for producing dynamic, interactive data visualizations
-           in web browsers. </p>
-        <p> To help the user understand in a clear manner, we will demonstrate 
-          visualization of Graphs, Trees, Binary Heap, and Linked List step by step. 
-          The website serves as an educational tool for those who are preparing 
-          coding interviews or who are looking to strengthen their Computer Science knowledge.</p>
-       </h1>
-
+      <h1 id="caption" style="color:black; ">
+        <p>
+          Anyone who is looking for software engineering job opportunities faces
+          the daunting coding interview involving data structures and
+          algorithms. Despite the multiple CS resources, students often find it
+          difficult to understand advanced topics such as Graphs, Trees, Binary
+          Heap, and Linked List with plain text.
+        </p>
+        <p>
+          Our group decided to introduce a visualization app on data structures
+          and algorithm questions on these four subjects. This website serves as
+          a visualization to these subjects with tech stack including HTML, CSS,
+          Javascript and D3.js, which is a javascript library for producing
+          dynamic, interactive data visualizations in web browsers.
+        </p>
+        <p>
+          To help the user understand in a clear manner, we will demonstrate
+          visualization of Graphs, Trees, Binary Heap, and Linked List step by
+          step. The website serves as an educational tool for those who are
+          preparing coding interviews or who are looking to strengthen their
+          Computer Science knowledge.
+        </p>
+      </h1>
     </div>
-    <div id="footer"><hr>&copy;2019 CSCI3383 Boston College, Byun, Nam, Ji, Lee, Kim
+    <div id="footer">
+      <hr />
+      &copy;2019 CSCI3383 Boston College, Byun, Nam, Ji, Lee, Kim
     </div>
-
-</body>
+  </body>
 </html>
