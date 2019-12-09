@@ -4,13 +4,13 @@ var treeData = {
     {
       name: 2,
       children: [
-        { name: 4, children: [{ name: 8 }, { name: 9 }] },
-        { name: 5, children: [{ name: 10 }, { name: 11 }] },
+        { name: 4, children: [{ name: 8,children: [{ name: 40 }, { name: 50 }] }, { name: 9 }] },
+        { name: 5, children: [{ name: 10 }, { name: 11, children: [{ name: 30 }] }] },
       ],
     },
     {
       name: 3,
-      children: [{ name: 6 }, { name: 7 }, { name: 1232132 }],
+      children: [{ name: 6 }, { name: 7 }, { name: 1232132, children: [{ name: 60 }, { name: 71 }] }],
     },
   ],
 };
