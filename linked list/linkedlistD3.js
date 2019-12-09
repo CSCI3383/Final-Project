@@ -29,6 +29,10 @@ svg
   .enter()
   .append('rect')
   .attr('class', 'nodes-rect')
+  .attr('id', function(d,i){
+    console.log('this id is', i);
+    return 'nodes-rect'+i;
+  })
   .attr('x', function(d, i) {
     return (i * BOX_SIZE) / 2;
   })
@@ -138,6 +142,10 @@ function updateViz() {
     .enter()
     .append('rect')
     .attr('class', 'nodes-rect')
+    .attr('id', function(d,i){
+      console.log('this id is', i);
+      return 'nodes-rect'+i;
+    })
     .attr('x', function(d, i) {
       return (i * BOX_SIZE) / 2;
     })
@@ -147,12 +155,29 @@ function updateViz() {
         (i * (MAX_BOX_PORTION - BOX_SIZE - 2 * MARGIN)) / (data.length - 1)
       );
     })
+
     .attr('width', BOX_SIZE)
     .attr('height', BOX_SIZE)
     .attr('rx', BOX_SIZE / 10)
     .attr('ry', BOX_SIZE / 10)
     .attr('fill', 'white')
+
+
+    //
+    // .attr('stroke', 'red')
+    // .transition()
+    // .duration(3000)
     .attr('stroke', '#665A88')
+
+
+
+
+
+
+
+
+
+
     .attr('opacity', 0.85);
 
   nodesText
@@ -176,7 +201,15 @@ function updateViz() {
       if (i === data.length - 1) return d + ' (Tail)';
       return d;
     })
+
     .attr('fill', '#665A88');
+
+
+  //exit
+  /*    nodesCirc.exit()
+    .transition().duration(1000)
+      .attr('opacity', 0)
+    .remove()*/
 
   nodesRect
     .exit()
@@ -219,14 +252,26 @@ function manualAddToTail() {
   console.log('this is value', value);
   linkedList.addToTail(value);
   updateViz();
+  console.log('length' , linkedList.length);
+  colorChange(linkedList.length-1);
 }
 function manualRemoveHead() {
   var value = linkedList.removeHead();
   updateViz();
+  colorChange(0);
 }
 
 function manualAddToHead() {
   var value = document.getElementById('controls-input').value;
   linkedList.addToHead(value);
   updateViz();
+  colorChange(0);
+}
+
+function colorChange(index){
+  d3.select('#nodes-rect'+index)
+    .attr('stroke','red')
+    .transition()
+    .duration(2000)
+    .attr('stroke', '#665A88')
 }

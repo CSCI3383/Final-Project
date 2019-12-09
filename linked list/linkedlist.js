@@ -1,6 +1,7 @@
 var LinkedList = function() {
   this.head = null;
   this.tail = null;
+  this.length = 0;
 };
 
 LinkedList.prototype.addToTail = function(value) {
@@ -12,6 +13,7 @@ LinkedList.prototype.addToTail = function(value) {
     this.tail.next = node;
   }
   this.tail = node;
+  this.length++;
 };
 LinkedList.prototype.removeHead = function() {
   if (this.head) {
@@ -22,6 +24,7 @@ LinkedList.prototype.removeHead = function() {
       this.head = null;
       this.tail = null;
     }
+    this.length--;
     return currentHeadValue;
   } else {
     console.log('No head to remove.');
@@ -45,10 +48,12 @@ LinkedList.prototype.makeNode = function(value) {
 
 LinkedList.prototype.addToHead = function(value) {
   var node = this.makeNode(value);
+
   if (!this.head) {
     this.head = node;
   } else {
     node.next = this.head;
   }
+  this.length++;
   this.head = node;
 };
