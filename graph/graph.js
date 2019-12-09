@@ -40,27 +40,50 @@ const graph = {
   ],
   links: [
     { source: '2', target: '4' },
+    { source: '4', target: '2' },
+
     { source: '4', target: '8' },
+    { source: '8', target: '4' },
+
     { source: '8', target: '16' },
+    { source: '16', target: '8' },
+
     { source: '16', target: '1' },
+    { source: '1', target: '16' },
+
     { source: '8', target: '18' },
+    { source: '18', target: '8' },
+
     { source: '16', target: '2' },
+    { source: '2', target: '16' },
+
     { source: '16', target: '116' },
+    { source: '116', target: '16' },
+
     { source: '2', target: '14' },
+    { source: '14', target: '2' },
+
     { source: '16', target: '11' },
+    { source: '11', target: '16' },
+
     { source: '18', target: '11' },
+    { source: '11', target: '18' },
+
     { source: '18', target: '12' },
+    { source: '12', target: '18' },
   ],
 };
 
 async function graphDFS(graph) {
+  var input = document.getElementById('controls-input').value;
+  input = input.toString();
   const stack = [];
   const visited = {};
   d3.selectAll('.node-circle').style('fill', 'grey');
   await timer(1500);
   const { links } = graph;
-  stack.push('2');
-  visited['2'] = true;
+  stack.push(input);
+  visited[input] = true;
   while (stack.length > 0) {
     const popped = stack.pop();
     d3.select('#node_' + popped).style('fill', 'red');
@@ -75,20 +98,24 @@ async function graphDFS(graph) {
   }
 }
 
-async function graphBFS(graph, value) {
+async function graphBFS(graph) {
+  var input = document.getElementById('controls-input').value;
+  input = input.toString();
   const queue = [];
   const queueVisited = {};
-  value = value.toString();
   const { links } = graph;
-  queue.push(value);
-  queueVisited[value] = true;
+  queue.push(input);
+  queueVisited[input] = true;
   while (queue.length > 0) {
     const shifted = queue.shift();
     d3.select('#node_' + shifted).style('fill', 'yellow');
     await timer(1000);
     for (let i = 0; i < links.length; i++) {
       const temp = links[i];
-      if (temp.source.id === shifted && visited[temp.target.id] === undefined) {
+      if (
+        temp.source.id === shifted &&
+        queueVisited[temp.target.id] === undefined
+      ) {
         queue.push(temp.target.id);
         queueVisited[temp.target.id] = true;
       }

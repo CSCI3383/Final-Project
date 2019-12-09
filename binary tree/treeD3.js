@@ -1,7 +1,5 @@
 var array = [];
-
-var treeData = new Tree('0', 0);
-array.push(treeData);
+var treeData;
 
 var addNextChild = function(value, array) {
   const node = new Tree(value, array.length);
@@ -12,18 +10,27 @@ var addNextChild = function(value, array) {
 
 var addBT = function() {
   var value = document.getElementById('controls-input').value;
-  console.log('Add bt', value);
   addNextChild(value, array);
-  test();
-  console.log('after', root);
+  createVis();
 };
 
-addNextChild('1', array);
-addNextChild('2', array);
-addNextChild('3', array);
-addNextChild('4', array);
-addNextChild('5', array);
-addNextChild('6', array);
+var clear = function() {
+  treeData = new Tree('0', 0);
+  array = [];
+  array.push(treeData);
+};
+
+var initialize = function() {
+  clear();
+  addNextChild('1', array);
+  addNextChild('2', array);
+  addNextChild('3', array);
+  addNextChild('4', array);
+  addNextChild('5', array);
+  addNextChild('6', array);
+};
+
+initialize();
 
 var i = 0,
   duration = 750,
@@ -31,7 +38,7 @@ var i = 0,
 
 var margin = { top: 20, right: 90, bottom: 30, left: 90 },
   width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+  height = 650 - margin.top - margin.bottom;
 
 var svg = d3
   .select('body')
@@ -43,7 +50,7 @@ var svg = d3
 
 var treemap = d3.tree().size([height, width]);
 // declares a tree layout and assigns the size
-function test() {
+function createVis() {
   d3.select('g')
     .selectAll('*')
     .remove();
@@ -56,10 +63,10 @@ function test() {
 
   // Collapse after the second level
   root.children.forEach(collapse);
-  console.log('asdsad');
   update(root);
 }
-test();
+
+createVis();
 
 // Collapse the node and all it's children
 function collapse(d) {
@@ -73,7 +80,6 @@ function collapse(d) {
 function update(source) {
   // Assigns the x and y position for the nodes
   var treeData = treemap(root);
-  console.log('update', treeData);
 
   // Compute the new tree layout.
   var nodes = treeData.descendants(),
@@ -91,8 +97,6 @@ function update(source) {
     return d.id || (d.id = ++i);
   });
 
-  var count = 0;
-  // Enter any new modes at the parent's previous position.
   var nodeEnter = node
     .enter()
     .append('g')
