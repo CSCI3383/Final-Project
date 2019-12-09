@@ -1,8 +1,8 @@
-var BinaryHeapTree = function(tree) {
+var maxHeap = function(tree) {
   this.tree = tree || [];
 };
 
-BinaryHeapTree.prototype = {
+maxHeap.prototype = {
   // Returns the index of the left child given a parent index
   lchild: function(index) {
     if (this.tree.length > 2 * index + 1) {

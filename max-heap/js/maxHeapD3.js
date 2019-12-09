@@ -1,4 +1,4 @@
-var BinaryHeapVisualizer = function(element) {
+var maxHeapVisualizer = function(element) {
   this.container = d3.select(element);
 
   d3.selection.prototype.moveToBack = function() {
@@ -11,7 +11,7 @@ var BinaryHeapVisualizer = function(element) {
   };
 };
 
-BinaryHeapVisualizer.prototype = {
+maxHeapVisualizer.prototype = {
   drawTree: function(binaryheaptree, index, rootCoords, parentCoords) {
     var root = index || 0,
       children = binaryheaptree.children(root),

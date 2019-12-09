@@ -1,33 +1,34 @@
-var binaryheaptree = new BinaryHeapTree();
-var binaryheapvisualizer = new BinaryHeapVisualizer('svg');
+var maxHeap = new maxHeap();
+var maxHeapVisualizer = new maxHeapVisualizer('svg');
 
 var handlePush = function() {
   var input = document.getElementById('controls-input');
-  binaryheaptree.push(Number(input.value));
+  maxHeap.push(Number(input.value));
   input.value = '';
   input.focus();
   visualize();
 };
 
 var handlePop = function() {
-  var popped = binaryheaptree.pop();
+  var popped = maxHeap.pop();
   alert('The popped value is ' + popped);
   visualize();
 };
 
 var handleClear = function() {
-  binaryheaptree.clear();
+  maxHeap.clear();
   visualize();
 };
 
 var visualize = function() {
-  binaryheapvisualizer.clearTree();
-  binaryheapvisualizer.drawTree(binaryheaptree, 0);
+  maxHeapVisualizer.clearTree();
+  maxHeapVisualizer.drawTree(maxHeap, 0);
 };
 
 var initialize = function() {
+  maxHeap.clear();
   for (let i = 0; i < 15; i += 2) {
-    binaryheaptree.push(i);
+    maxHeap.push(i);
   }
   visualize();
 };
