@@ -1,2 +1,2 @@
-# FInal-Project
+# Final-Project
 Visualizing Coding Interview
