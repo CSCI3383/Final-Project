@@ -31,3 +31,5 @@ var initialize = function() {
   }
   visualize();
 };
+
+initialize();
