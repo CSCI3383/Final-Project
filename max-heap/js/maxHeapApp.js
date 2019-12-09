@@ -27,8 +27,9 @@ var visualize = function() {
 
 var initialize = function() {
   maxHeap.clear();
-  for (let i = 0; i < 15; i += 2) {
-    maxHeap.push(i);
+  for (let i = 0; i < 10; i++) {
+    const random = Math.floor(Math.random() * 25);
+    maxHeap.push(random);
   }
   visualize();
 };
