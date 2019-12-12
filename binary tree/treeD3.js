@@ -90,8 +90,6 @@ function update(source) {
     d.y = d.depth * 180;
   });
 
-  // ****************** Nodes section ***************************
-
   // Update the nodes...
   var node = svg.selectAll('g.node').data(nodes, function(d) {
     return d.id || (d.id = ++i);

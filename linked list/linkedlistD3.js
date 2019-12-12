@@ -29,9 +29,9 @@ svg
   .enter()
   .append('rect')
   .attr('class', 'nodes-rect')
-  .attr('id', function(d,i){
+  .attr('id', function(d, i) {
     console.log('this id is', i);
-    return 'nodes-rect'+i;
+    return 'nodes-rect' + i;
   })
   .attr('x', function(d, i) {
     return (i * BOX_SIZE) / 2;
@@ -79,7 +79,6 @@ svg
 
 function updateViz() {
   var data = flattenLinkedList(linkedList);
-  console.log('this is data', data);
   /*    var nodesCirc = svg.selectAll('.nodes-circ').data(data, function(d){return d;});*/
   var nodesRect = svg.selectAll('.nodes-rect').data(data, function(d, i) {
     return i;
@@ -142,9 +141,9 @@ function updateViz() {
     .enter()
     .append('rect')
     .attr('class', 'nodes-rect')
-    .attr('id', function(d,i){
+    .attr('id', function(d, i) {
       console.log('this id is', i);
-      return 'nodes-rect'+i;
+      return 'nodes-rect' + i;
     })
     .attr('x', function(d, i) {
       return (i * BOX_SIZE) / 2;
@@ -161,22 +160,7 @@ function updateViz() {
     .attr('rx', BOX_SIZE / 10)
     .attr('ry', BOX_SIZE / 10)
     .attr('fill', 'white')
-
-
-    //
-    // .attr('stroke', 'red')
-    // .transition()
-    // .duration(3000)
     .attr('stroke', '#665A88')
-
-
-
-
-
-
-
-
-
 
     .attr('opacity', 0.85);
 
@@ -203,13 +187,6 @@ function updateViz() {
     })
 
     .attr('fill', '#665A88');
-
-
-  //exit
-  /*    nodesCirc.exit()
-    .transition().duration(1000)
-      .attr('opacity', 0)
-    .remove()*/
 
   nodesRect
     .exit()
@@ -249,11 +226,9 @@ function randomLinkedListAction(linkedList) {
 
 function manualAddToTail() {
   var value = document.getElementById('controls-input').value;
-  console.log('this is value', value);
   linkedList.addToTail(value);
   updateViz();
-  console.log('length' , linkedList.length);
-  colorChange(linkedList.length-1);
+  colorChange(linkedList.length - 1);
 }
 function manualRemoveHead() {
   var value = linkedList.removeHead();
@@ -268,10 +243,10 @@ function manualAddToHead() {
   colorChange(0);
 }
 
-function colorChange(index){
-  d3.select('#nodes-rect'+index)
-    .attr('stroke','red')
+function colorChange(index) {
+  d3.select('#nodes-rect' + index)
+    .attr('stroke', 'red')
     .transition()
-    .duration(2000)
-    .attr('stroke', '#665A88')
+    .duration(3000)
+    .attr('stroke', '#665A88');
 }
